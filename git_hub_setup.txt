@@ -1,0 +1,31 @@
+init
+git init
+git clone https://github.com/KushalBhar/Data_Analytics_Projects
+cd Data_Analytics_Projects
+git status
+git add .
+git diff
+git status
+git diff --staged
+git status
+git commit -m "First Commit"
+git config --global user.kushalssainilearning14@gmail.com
+git config --global user.name = "kushalbhar"
+git commit -m "First Commit"
+git config --global user.email kushalssainilearning14@gmail.com
+git config --global user.name "kushalbhar"
+git commit -m "First Commit"
+git status
+git diff --staged
+git status
+git branch --unset-upstream
+git status
+git add .
+git status
+git branch -M main
+git remote add origin https://github.com/KushalBhar/Data_Analytics_Projects.git
+git push -u origin main
+/history
+history
+doskey /history
+doskey /history > git_hub_setup.txt
