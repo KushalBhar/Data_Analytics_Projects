@@ -1,0 +1,266 @@
+backend replicon
+	option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server replicon-server 10.151.0.16:80 check
+
+backend crm_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 240
+    timeout connect 15s
+    server crm_altametrics_com_server 10.151.0.29:80 check
+
+backend office_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 60s
+    timeout connect 10s
+    server office_altametrics_com_server 10.151.0.38:80 check
+
+backend wiki_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 20s
+    timeout connect 5s
+    server wiki_altametrics_com_server 10.151.0.25:80 check
+
+backend learn_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server learn_altametrics_com_server 10.151.0.25:80 check
+
+backend projects_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server projects_altametrics_com_server 10.151.0.17:80 check
+#This server has  Require ip 10.151.0.203 in the location tab of /etc/apache2/sites-enabled/openproject.conf
+#This will need to be changed to 10.151.0.81 for this site to work in haproxy
+#This change has already been made and haproxy should work - remove ip 10.151.0.203 when haproxy cutover is complete
+
+backend idp_altametrics_com
+	option forwardfor
+    balance leastconn
+    timeout server 30s
+	timeout connect 5s
+    server projects_altametrics_com_server 10.151.0.50:80 check
+
+backend mhg_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 20s
+    timeout connect 10s
+    server mhg_altametrics_com_server 10.151.0.12:8025 check
+
+backend 761_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 20s
+    timeout connect 5s
+    server 761_altametrics_com_server 10.151.0.28:80 check
+
+backend auth_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server auth_altametrics_com_server 10.151.0.73:8080 check
+
+#backend go_altametrics_com
+#    option forwardfor
+#    balance leastconn
+#    timeout server 20s
+#    timeout connect 5s
+#    server go_altametrics_com_server 10.151.0.18:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend ljstracker_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server ljstracker_altametrics_com_server 10.151.0.28:80 check
+
+backend g4_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server g4_altametrics_com_server 10.151.0.14:80 check
+
+backend g1_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server g1_altametrics_com_server 10.151.0.66:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend g2_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server g2_altametrics_com_server 10.151.0.67:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend webinar_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server webinar_altametrics_com_server 10.151.0.31:80 check
+
+backend events_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server events_altametrics_com_server 10.151.0.25:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend g8_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server g8_altametrics_com_server 10.151.0.69:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend kb_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server kb_altametrics_com_server 10.151.0.28:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend intg_altametrics_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server intg_altametrics_com_server 10.151.0.32:8070 check
+
+backend traceui_altametrics_com
+	option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server traceui_altametrics_com_server 10.120.11.247:14318 check
+
+## This server should have Firewall allowed between Office LAN to LAN for this port.
+
+## Hubworks Backends
+
+#backend go_hubworks_com
+#    option forwardfor
+#    balance leastconn
+#    timeout server 240s
+#    timeout connect 5s
+#    server go_hubworks_com_server 10.151.0.18:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+backend crm_hubworks_com
+    option forwardfor
+    balance leastconn
+    timeout server 240s
+    timeout connect 5s
+    server crm_hubworks_com_server 10.151.0.30:80 check
+
+backend webinar_hubworks_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server webinar_hubworks_com_server 10.151.0.31:80 check
+
+backend events_hubworks_com
+    option forwardfor
+    balance leastconn
+    timeout server 30s
+    timeout connect 5s
+    server events_hubworks_com_server 10.151.0.25:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+#backend hmautic_hubworks_com
+#    option forwardfor
+#    balance leastconn
+#    timeout server 240s
+#    timeout connect 5s
+#    server hmautic_hubworks_com_server 10.151.0.18:8080 check
+
+#backend g0_hubworks_com
+#    option forwardfor
+#    balance leastconn
+#    timeout server 240s
+#    timeout connect 5s
+#    server g0_hubworks_com_server 10.151.0.27:80 check
+
+#backend g1_hubworks_com
+#    option forwardfor
+#    balance leastconn
+#    timeout server 240s
+#    timeout connect 5s
+#    server g1_hubworks_com_server 10.151.0.15:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+#backend go_hubworks_com_8443
+#    option forwardfor
+#    balance leastconn
+#    timeout server 30s
+#    timeout connect 5s
+#    server go_hubworks_com_8443_server 10.151.0.18:8080 check
+
+#backend s4_hubworks_com
+#    option forwardfor
+#    balance leastconn
+#    timeout server 30s
+#    timeout connect 5s
+#    server s4_hubworks_com_server 10.151.0.65:443 ssl verify none check
+
+# This server should have backend SSL cert deployed.
+
+## PlumPOS Backends
+
+backend events_plumpos_com
+    option forwardfor
+    balance leastconn
+    timeout server 60s
+    timeout connect 5s
+    server events_plumpos_com_server 10.151.0.25:443 ssl verify none check
+
+backend webinar_plumpos_com
+    option forwardfor
+    balance leastconn
+    timeout server 60s
+    timeout connect 5s
+    server webinar_plumpos_com_server 10.151.0.25:80 check
+
+## PosIQ Backends
+
+backend commandcenter_posiq_net
+    option forwardfor
+    balance leastconn
+    timeout server 60s
+    timeout connect 5s
+    server commandcenter_posiq_net_server 10.120.11.102:80 check
+	
+# This should have firewall allowed between Office LAN to LAN
+# This is currently being used in Nginx proxy 10.120.11.101
+# Old TLS versions are supported for old customers. 
+# Once we have finalized moving from Nginx to haproxy then this can be used with a firewall change, Update LAN IP 

@@ -1,0 +1,216 @@
+backend replicon
+	option forwardfor
+	balance leastconn
+	timeout server 30s
+	timeout connect 5s
+	server replicon-server 10.151.0.16:80 check
+
+backend crm_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 240
+	timeout connect 15s
+	server crm_altametrics_com_server 10.151.0.29:80 check
+
+backend office_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 60s
+	timeout connect 10s
+	server office_altametrics_com_server 10.151.0.38:80 check
+
+backend wiki_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 20s
+	timeout connect 5s
+	server wiki_altametrics_com_server 10.151.0.25:80 check
+
+backend learn_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 30s
+	timeout connect 5s
+	server learn_altametrics_com_server 10.151.0.25:80 check
+
+#backend phpagebuilder_altametrics_com
+#	option forwardfor
+#	balance leastconn
+#	timeout server 30s
+#	timeout connect 5s
+#	server phpagebuilder_altametrics_com_server 10.151.0.25:80 check
+
+backend projects_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 30s
+	timeout connect 5s
+	server projects_altametrics_com_server 10.151.0.17:80 check
+#This server has  Require ip 10.151.0.203 in the location tab of /etc/apache2/sites-enabled/openproject.conf
+#This will need to be changed to 10.151.0.9 for this site to work in haproxy
+#This change has already been made and haproxy should work - remove ip 10.151.0.203 when haproxy cutover is complete
+
+backend idp_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 30s
+	timeout connect 5s
+	server projects_altametrics_com_server 10.151.0.50:80 check
+
+backend mhg_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 20s
+	timeout connect 10s
+	server mhg_altametrics_com_server 10.151.0.12:8025 check
+
+backend 761_altametrics_com
+	option forwardfor
+	balance leastconn
+	timeout server 20s
+	timeout connect 5s
+	server 761_altametrics_com_server 10.151.0.28:80 check
+
+backend go_altametrics_com
+        option forwardfor
+        balance leastconn
+        timeout server 20s
+        timeout connect 5s
+        server go_altametrics_com_server 10.151.0.18:443 ssl verify none check
+
+#backend gw1_altametrics_com
+#        option forwardfor
+#        balance leastconn
+#        timeout server 30s
+#        timeout connect 5s
+#        server gw1_altametrics_com_server 10.110.10.226:443 ssl verify none check
+#This haproxy server needs access to the IP above.  Either via firewall rule or an IP in the subnet above.
+
+backend ljstracker_altametrics_com
+        option forwardfor
+        balance leastconn
+        timeout server 30s
+        timeout connect 5s
+        server ljstracker_altametrics_com_server 10.151.0.28:80 check
+
+backend auth_altametrics_com
+        option forwardfor
+        balance leastconn
+        timeout server 30s
+        timeout connect 5s
+        server auth_altametrics_com_server 10.151.0.73:8080 check
+
+#backend amgto_altametrics_com
+#        option forwardfor
+#        balance leastconn
+#        timeout server 30s
+#        timeout connect 5s
+#        server amgto_altametrics_com_server 10.151.0.13:80 check
+
+#backend trace_altametrics_com
+	#mode tcp
+#	option forwardfor
+#        balance leastconn
+#        timeout server 30s
+#        timeout connect 5s
+#        server trace_altametrics_com_server 10.120.11.247:14317 check
+
+backend traceui_altametrics_com
+	#mode tcp
+	option forwardfor
+        balance leastconn
+        timeout server 30s
+        timeout connect 5s
+        server traceui_altametrics_com_server 10.120.11.247:14318 check
+
+#backend adapp09b_altametrics_com
+#	option forwardfor
+#	balance leastconn
+#	timeout server 30s
+#	timeout connect 5s
+#	server adapp09b_altametrics_com_server 10.220.10.209:8070 check
+
+backend go_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 240s
+        timeout connect 5s
+        server go_hubworks_com_server 10.151.0.18:443 ssl verify none check
+
+backend crm_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 240s
+        timeout connect 5s
+        server crm_hubworks_com_server 10.151.0.30:80 check
+
+backend webinar_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 30s
+        timeout connect 5s
+        server webinar_hubworks_com_server 10.151.0.31:80 check
+
+backend events_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 30s
+        timeout connect 5s
+        server events_hubworks_com_server 10.151.0.25:443 ssl verify none check
+	#server events_hubworks_com_server 10.151.0.25:80 check
+
+backend hmautic_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 240s
+        timeout connect 5s
+        server hmautic_hubworks_com_server 10.151.0.18:8080 check
+
+backend g0_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 240s
+        timeout connect 5s
+        server g0_hubworks_com_server 10.151.0.27:80 check
+
+backend g1_hubworks_com
+        option forwardfor
+        balance leastconn
+        timeout server 240s
+        timeout connect 5s
+        server g1_hubworks_com_server 10.151.0.15:443 ssl verify none check
+
+backend go_hubworks_com_8443
+	option forwardfor
+	balance leastconn
+	timeout server 30s
+	timeout connect 5s
+	server go_hubworks_com__8443_server 10.151.0.18:8080 check
+
+backend s4_hubworks_com
+	option forwardfor
+	balance leastconn
+	timeout server 30s
+	timeout connect 5s
+	server s4_hubworks_com_server 10.151.0.65:443 ssl verify none check
+
+backend commandcenter_posiq_net
+	option forwardfor
+	balance leastconn
+	timeout server 60s
+	timeout connect 5s
+	server commandcenter_posiq_net_server 10.120.11.102:80 check
+
+backend events_plumpos_com
+        option forwardfor
+        balance leastconn
+        timeout server 60s
+        timeout connect 5s
+        server events_plumpos_com_server 10.151.0.25:443 ssl verify none check
+
+backend webinar_plumpos_com
+        option forwardfor
+        balance leastconn
+        timeout server 60s
+        timeout connect 5s
+        server webinar_plumpos_com_server 10.151.0.25:80 check
